@@ -1,0 +1,42 @@
+/* 3.  A palindrome is a sequence of characters that reads the same backward as forward. 
+     For example, each of the following five-digit integers is a palindrome: 12321, 55555, 
+     45554 and 11611. Write an application that reads in a five-digit integer and 
+     determines whether it’s a palindrome. If the number is not five digits long, display an  
+     error message and allow the user to enter a new value.
+     */
+     package lesson1;
+
+import java.util.Scanner;
+
+public class Palindrome {
+
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		System.out.println("Enter five digit number:- ");
+		int number=in.nextInt();
+		int remainder,reverse=0;
+		while(true){		
+			if(number/10000>0 && number/10000<10){
+				break;
+			}
+			else{
+				System.out.println("Your number not 5 digit. Please Enter five digit number:- ");				
+				number=in.nextInt();
+				continue;
+			}
+		}
+		int temp=number;
+		while(number>0){
+			remainder=number%10;
+			reverse=reverse*10+remainder;
+			number=number/10;
+		}
+		if(temp==reverse)
+			System.out.println(temp+" is Palindrome. ");
+		else
+			System.out.println(temp+ " is not palindrome.");
+		in.close();
+	}
+
+}
+

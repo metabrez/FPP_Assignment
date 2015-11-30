@@ -1,0 +1,102 @@
+package lesson3;
+
+import java.util.Scanner;
+
+class Driver{
+	private static final String MANUFACTURER="LG";
+	private static final int SCREEN_SIZE=42;
+	private boolean powerOn=true;
+	private int channel;
+	private int volume;
+	public void power(int n){
+		if(n==1){
+			setPowerOn(true);
+			System.out.println("You TV is ON. "+isPowerOn());
+		}
+		if(n==2){
+			setPowerOn(false);
+			System.out.println("You TV is OFF. "+isPowerOn());
+		}
+	}
+	public boolean isPowerOn() {
+		return powerOn;
+	}
+
+	public void setPowerOn(boolean powerOn) {
+		this.powerOn = powerOn;
+	}
+
+	public int getChannel() {
+		return channel;
+	}
+
+	public void setChannel(int channel) {
+		this.channel = channel;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public static String getManufacturer() {
+		return MANUFACTURER;
+	}
+
+	public static int getScreenSize() {
+		return SCREEN_SIZE;
+	}
+	public void IncreaseVolume(int volume){
+		this.volume=volume;	
+		volume++;
+		System.out.println("Volume level is:- "+volume);
+	}
+	public void DecreaseVolume(int volume){
+		if(volume==0){
+			System.out.println("Volume level is:- 0");			
+		}
+		else{			
+		this.volume=volume;
+		volume--;
+		System.out.println("Volume level is:- "+volume);
+		}
+	}
+
+	public void Television(){
+		System.out.println("Your TV is manufactured by: "+getManufacturer());
+		System.out.println("Your TV size is: "+getScreenSize()+" inch.");		
+	}		
+}
+public class TelevisionControl {	
+
+	public static void main(String[] args) {		
+		Driver d=new Driver();
+		Scanner scan=new Scanner(System.in);			
+		try {
+			System.out.println("Please press 1 for TV ON.\n" );
+			d.power(scan.nextInt());
+			d.setPowerOn(true);
+			d.Television();
+			System.out.println("Press Number for set the channel.");
+			d.setChannel(scan.nextInt());
+			System.out.println("You choose channel No:- "+d.getChannel());
+			System.out.println("Press 1 to incrase Volume and press 2 to decrase volume.");
+			int n=scan.nextInt();
+			if(n==1){
+				d.setVolume(n);
+				d.IncreaseVolume(d.getVolume());
+			}
+			else if(n==2){				
+				d.setVolume(n);
+				d.IncreaseVolume(d.getVolume());
+			}
+		} catch (Exception e) {
+			e.toString();
+		}
+		
+		scan.close();
+	}
+}

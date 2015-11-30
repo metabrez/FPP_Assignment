@@ -1,0 +1,48 @@
+package lesson3;
+
+public class TravelTimeCalculator {
+	String fromCity;
+	String toCity;
+	//Date d;
+	public static void main(String[] args) {
+		//newyourk latitude and longitude
+		double lat1 = 40.7127;
+		double lon1 = 74.0059;
+		//cedar rapids latitude and longitude
+		double lat2 = 41.9831;
+		double lon2 = 91.6686;
+		double distance = distance(lat1, lon1, lat2, lon2, 'K');
+		System.out.println("Travelling from New York to Cedar Rapids, IA is:-");
+		System.out.println("Distance between me and him is "+distance+" km");
+		System.out.println("Time to travel "+getDuration(distance)+" hrs");
+		
+
+	}
+	public static final double distance(double lat1, double lon1, double lat2, double lon2, char unit)
+	{
+	    double theta = lon1 - lon2;
+	    double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+	    dist = Math.acos(dist);
+	    dist = rad2deg(dist);
+	    dist = dist * 60 * 1.1515;	     
+	    if (unit == 'K') {
+	        dist = dist * 1.609344;
+	    }
+	    else if (unit == 'N') {
+	        dist = dist * 0.8684;
+	    }	     
+	    return (dist);
+	}	
+	public static double getDuration(double dist) {
+		return dist/500;// speed of plane is 500m/h
+	}
+	private static final double deg2rad(double deg)
+	{
+	    return (deg * Math.PI / 180.0);
+	}	 
+	
+	private static final double rad2deg(double rad)
+	{
+	    return (rad * 180 / Math.PI);
+	}
+}

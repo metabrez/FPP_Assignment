@@ -1,0 +1,22 @@
+package lesson4;
+
+public class FindSumInArray {
+
+	public static void main(String[] args) {
+		FindSumInArray obj=new FindSumInArray();
+		int[] arr=new int[]{2,3,4,5,6};		
+		int sum=obj.recSumArray(arr, arr[0], 1);
+		System.out.println(sum);
+
+	}
+	public int recSumArray(int[] arr, int sum, int i){
+		if(arr.length==i){
+			return sum;
+		}
+		else{
+			sum+=arr[i];
+			i++;
+		}
+		return recSumArray(arr, sum, i);
+	}
+}

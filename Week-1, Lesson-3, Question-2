@@ -1,0 +1,43 @@
+package lesson3;
+
+import java.util.Random;
+
+class PairOfDice {
+	Random ran=new Random();
+	public int die1; // Number showing on the first die.
+	public int die2; // Number showing on the second die.
+
+	public PairOfDice() {		
+		roll();
+	}
+
+	public PairOfDice(int val1, int val2) {
+		roll();
+		//die1=val1;
+		//die2=val2;
+	}
+
+	public void roll() {		
+		// int randomNum = rand.nextInt((max - min) + 1) + min;
+		 die1 = ran.nextInt((6 - 1) + 1) + 1;
+		 die2 = ran.nextInt((6 - 1) + 1) + 1;		
+	}
+}
+
+public class Main{
+
+	public static void main(String[] args) {
+		PairOfDice obj1=new PairOfDice();
+		PairOfDice obj2=new PairOfDice(2,6);
+		int count=1;
+			while((obj1.die1+obj1.die2!=8)){
+			obj1.roll();
+			obj2.roll();					
+				count++;
+			
+		}
+		System.out.println("Total pair of dice are same in "+count+" rolling.");		 
+                      
+	}
+	
+}

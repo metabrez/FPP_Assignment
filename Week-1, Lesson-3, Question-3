@@ -1,0 +1,31 @@
+package lesson3;
+
+import java.util.Scanner;
+
+public class Billing {
+	static double price;
+	static int quantity;
+	static double coupen;	
+	
+	double ComputeBill(double price){
+		return (price+price*8/100);
+	}
+	double ComputeBill(double price, int qty){
+		return (price*qty+(price*qty)*8/100);
+	}
+	double ComputeBill(double price, int qty, double coupen){
+		return ((price*qty)-(price*qty)*coupen/100+(price*qty)*8/100);
+	}
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		Billing obj1=new Billing();
+		System.out.println("Please Enter the price of book:- ");
+		System.out.println("The price of one photo book is: "+obj1.ComputeBill(scan.nextDouble()));
+		System.out.println("Please Enter the price and quantity of book:- ");
+		System.out.println("The price of photo book is: "+obj1.ComputeBill(scan.nextDouble(),scan.nextInt()));
+		System.out.println("Please Enter the price, quantity and coupen of book:- ");
+		System.out.println("The price of photo book including coupen is: "+obj1.ComputeBill(scan.nextDouble(),scan.nextInt(),scan.nextDouble()));
+		scan.close();
+	}
+
+}

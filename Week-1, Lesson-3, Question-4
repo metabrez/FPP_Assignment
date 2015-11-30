@@ -1,0 +1,27 @@
+package lesson3;
+
+public class SavingAccount {
+	static double annualInterestRate=4 ;
+	double savingsBalance ;
+	public void savingsBalance(double savingbalance){
+		double interest=savingbalance*annualInterestRate/(1200);
+		savingbalance=savingbalance+interest;
+		System.out.println("Monthly interest is:- "+interest);
+		System.out.println("New Balance is:-"+savingbalance);		
+	}
+	public static void modifyInterestRate(double savingbalance){
+		double interest=savingbalance*5/(1200);
+		System.out.println("Monthly interest is:-"+interest);
+		savingbalance=savingbalance+interest;
+		System.out.println("New Balance is:-"+savingbalance);
+	}
+	public static void main(String[] args) {
+		SavingAccount saver1=new SavingAccount();
+		saver1.savingsBalance(2000);
+		SavingAccount saver2=new SavingAccount();
+		saver2.savingsBalance(3000);		
+		modifyInterestRate(2000);		
+		modifyInterestRate(3000);
+	}
+
+}

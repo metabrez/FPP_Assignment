@@ -1,0 +1,55 @@
+package lesson2;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class RelativeWeight {
+	private static DecimalFormat df = new DecimalFormat(".##");
+	public static void main(String[] args) {
+		System.out.println("Choice		Planet	");
+		System.out.println("------		-------	");
+		System.out.println("1		Venus	");
+		System.out.println("2		Mars	");
+		System.out.println("3		Jupiter	");
+		System.out.println("4		Saturn	");
+		System.out.println("5		Uranus	");
+		System.out.println("6		Neptune	");
+		System.out.println("\nPlease select the choice to find your weight in respected planet.");
+		Scanner scan=new Scanner(System.in);
+		int choice=scan.nextInt();
+		if(choice<1 || choice>6){
+			System.out.println("Please select right choice.");
+			choice=scan.nextInt();
+		}
+		System.out.println("Please Enter your weight in kg.");
+		double weight=scan.nextDouble();		
+		switch (choice) {
+			case 1: {
+				System.out.println("Your weight in Venus is "+df.format(weight*0.78)+" kg.");
+				break;
+			}
+			case 2: {
+				System.out.println("Your weight in Mars is "+df.format(weight*0.39)+" kg.");
+				break;	
+						}
+			case 3: {
+				System.out.println("Your weight in Jupiter is "+df.format(weight*2.65)+" kg.");
+				break;
+			}
+			case 4: {
+				System.out.println("Your weight in Saturn is "+df.format(weight*1.17)+" kg.");
+				break;
+			}
+			case 5: {
+				System.out.println("Your weight in Uranus is "+df.format(weight*1.05)+" kg.");
+				break;
+			}
+			case 6: {
+				System.out.println("Your weight in Neptune is "+df.format(weight*1.23)+" kg.");
+				break;
+			}			
+		}
+		scan.close();
+	}
+
+}

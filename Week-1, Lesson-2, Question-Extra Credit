@@ -1,1 +1,50 @@
-// Mr. Nagedra copy and paste form university lab pc.
+package lesson2;
+
+public class EncryptDecrypt {
+
+	public static void main(String[] args) {
+		EncryptDecrypt ed=new EncryptDecrypt();
+		int n=1234;
+		int[] arr=new int[4];
+		for(int i=3;i>-1;i--){			
+			arr[i]=(n%10+7)%10;
+			n=n/10;
+		}		
+		arr=ed.encrypt(arr);
+		ed.decrypt(arr);		
+	}
+	public int[] encrypt(int[] arr){
+				
+		for(int j=0;j<2;j++){
+			int temp=arr[j];
+			arr[j]=arr[j+2];
+			arr[j+2]=temp;
+		}
+		System.out.println("The Encrypted data is:- ");
+		for(int x:arr){
+			System.out.print(x);
+		}
+		return arr;
+	}
+	public int[] decrypt(int[] arr){
+		
+		for(int j=0;j<2;j++){
+			int temp=arr[j];
+			arr[j]=arr[j+2];
+			arr[j+2]=temp;
+		}
+		for(int i=0;i<4;i++){
+			if(arr[i]<7){
+				arr[i]=(arr[i]+10)-7;
+			}
+			else{
+				arr[i]=arr[i]-7;
+			}
+		}
+		System.out.println("\nThe decrypted data is:- ");
+		for(int x:arr){
+			System.out.print(x);
+		}
+		return arr;
+	}
+}

@@ -10,6 +10,7 @@ public class Dollar {
 		double amount=Double.parseDouble(input.nextLine());		
 		System.out.println((int) amount + " Dollers"+'\n'+(int) (amount%((int) amount)*100/25)+" Quarters"+'\n'+(int) (((amount%((int) amount))*100%25)/10)+" dimes"+'\n'+(int) ((((amount%((int) amount))*100%25)%10)/5)+" nickles"+'\n'+(int) ((((amount%((int) amount))*100%25)%10)%5)+" pennies");
 		input.close();	
+		xxxxxxx
 	}
 
 }
